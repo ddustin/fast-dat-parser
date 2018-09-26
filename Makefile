@@ -1,4 +1,4 @@
-CXX=g++
+CXX=g++-8
 CFLAGS=-pedantic -std=c++1z -W -Wall -Wcast-qual -Wconversion -Werror -Wextra -Wwrite-strings -Wno-unused-function
 #OFLAGS=-O3 -ggdb3
 OFLAGS=-O3
@@ -17,7 +17,7 @@ PROGRAMS=bestchain parser transaction
 all: $(INCLUDES) bestchain parser transaction
 
 clean:
-	$(RM) $(DEPENDENCIES) $(OBJECTS) bestchain parser
+	$(RM) $(INCLUDES) $(DEPENDENCIES) $(OBJECTS) bestchain parser transaction
 
 bestchain: $(filter-out src/parser.o src/transaction.o, $(OBJECTS))
 	$(CXX) $(filter-out src/parser.o src/transaction.o, $(OBJECTS)) $(LFLAGS) $(OFLAGS) -o $@
